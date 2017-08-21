@@ -9,8 +9,7 @@
 
 <h4>Form Add Ringkasan</h4>
 
-<form action="{{url('ringkasankhotbah/save/')}}" method="POST">
-
+<form action="{{url('ringkasankhotbah/save/')}}" method="POST"  enctype="multipart/form-data">
 
 
                              <div class="input-field col s12 m12 l12">
@@ -31,13 +30,9 @@
                             <select name="pendeta">
                               <option value="" disabled selected>Choose your option
                               </option>
-                              <option value="Senin">Senin</option>
-                              <option value="Selasa">Selasa</option>
-                              <option value="Rabu">Rabu</option>
-                              <option value="Kamis">Kamis</option>
-                              <option value="Jumat">Jumat</option>
-                              <option value="Sabtu">Sabtu</option>
-                              <option value="Minggu">Minggu</option>
+                              @foreach($pendeta as $key)
+                              <option value="{{$key->nama}}">{{$key->nama}}</option>
+                              @endforeach
                             </select>
                             <label for="email">Dibawakan Oleh</label>
                             </div>
@@ -58,9 +53,10 @@
                             </div>
                      </center>
                    </div>
+
             <div class="file-field input-field col s12">
           <div class="btn all">
-            <span>Edit Image</span>
+            <span>Image</span>
               <input name="sampul" id="sampul" type="file">
           </div>
           <div class="file-path-wrapper">
@@ -73,7 +69,6 @@
 <input type="hidden" name="_token"
    value="{{csrf_token()}}">
  </form> 
-
 </div>
 
 

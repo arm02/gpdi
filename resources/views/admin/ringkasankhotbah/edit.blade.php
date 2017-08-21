@@ -9,7 +9,7 @@
 
 <h4>Form Add Ringkasan</h4>
 
-<form action="{{url('ringkasankhotbah/update/')}}" method="POST">
+<form action="{{url('ringkasankhotbah/update/')}}" method="POST" enctype="multipart/form-data">
 
 
 
@@ -31,15 +31,11 @@
                              <div class="input-field col s12 m12 l12">
                             <i class="material-icons prefix">content_copy</i>
                             <select name="pendeta">
-                              <option value="{{$ringkasankhotbah->pendeta}}" disabled selected>Choose your option
+                              <option value="{{$ringkasankhotbah->pendeta}}" disabled selected>{{$ringkasankhotbah->pendeta}}
                               </option>
-                              <option value="Senin">Senin</option>
-                              <option value="Selasa">Selasa</option>
-                              <option value="Rabu">Rabu</option>
-                              <option value="Kamis">Kamis</option>
-                              <option value="Jumat">Jumat</option>
-                              <option value="Sabtu">Sabtu</option>
-                              <option value="Minggu">Minggu</option>
+                                @foreach($pendeta as $key)
+                              <option value="{{$key->nama}}">{{$key->nama}}</option>
+                              @endforeach
                             </select>
                             <label for="email">Dibawakan Oleh</label>
                             </div>
@@ -52,13 +48,14 @@
                             </div>
 
                              <div class="image-container bordered">
+                         <div class="image-container bordered">
+                         <center>
                             <div class="frame">
-                            <center>
-                              <img id="img" 
-                              src="{{ url('images/'.$ringkasankhotbah->sampul) }}" 
-                              style="width: 300px;height: 200px;">
-                              </center>
+                              <img id="img" src="{{ url('images/'.$ringkasankhotbah->sampul) }}" 
+                              style="max-width:300px;">
+                     </center>
                             </div>
+                        </div>
                         <div class="file-field input-field col s12" style="width: 700px;" >
                               <div class="btn all">
                                 <span>Image</span>
@@ -77,6 +74,8 @@
 
 <input type="hidden" name="_token"
    value="{{csrf_token()}}">
+             <input type="hidden" name="id"
+          value="{{$ringkasankhotbah->id}}">
  </form> 
 
 </div>

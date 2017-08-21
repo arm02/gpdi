@@ -30,7 +30,7 @@
                      </center>
                         </div>
 
-                        <div class="file-field input-field col s12" style="width: 700px;">
+              <div class="file-field input-field col s12" style="width: 700px;">
           <div class="btn all">
             <span>Edit Image</span>
               <input name="sampul"  id="sampul" type="file">

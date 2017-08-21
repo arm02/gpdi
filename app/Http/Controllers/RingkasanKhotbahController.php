@@ -22,16 +22,18 @@ class RingkasanKhotbahController extends Controller
 
     public function add()
     {
-    	return view('admin.ringkasankhotbah.add');
+        $data['pendeta'] = \App\ListPembawaFirman::paginate(10);
+    	return view('admin.ringkasankhotbah.add')->with($data);
     }
 
     public function edit($id)
     {
     	$data['ringkasankhotbah']=\App\RingkasanKhotbah::find($id);
+        $data['pendeta'] = \App\ListPembawaFirman::paginate(10);
 		return view('admin.ringkasankhotbah.edit')->with($data);
     }
 
-        public function save()
+    public function save()
     {
     	$a = new  \App\RingkasanKhotbah;
     	$a->judul = Input::get('judul');
@@ -57,6 +59,26 @@ class RingkasanKhotbahController extends Controller
     	$a = \App\RingkasanKhotbah::find($id);
         $a->delete();
         return redirect(url('ringkasankhotbah/list')); 
+    }
+
+        public function update()
+    {
+        $a = \App\RingkasanKhotbah::find(Input::get('id'));
+        $a->judul = Input::get('judul');
+        $a->ayat = Input::get('ayat');
+        $a->pendeta = Input::get('pendeta');
+        $a->isi = Input::get('isi');
+        $a->id_user = Auth::user()->id;
+            if(Input::hasFile('sampul')){
+                $sampul = date("YmdHis")
+                .uniqid()
+                ."."
+                .Input::file('sampul')->getClientOriginalExtension();
+                Input::file('sampul')->move(storage_path('sampul'),$sampul);
+                $a->sampul = $sampul;
+            }
+        $a->save();
+        return redirect(url('ringkasankhotbah/list'));  
     }
 
   }
