@@ -20,12 +20,6 @@
                             </div>
 
 
-                             <div class="input-field col s12 m12 l12">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input  type="text" name="wakil" 
-                            value="{{$kepengurusan->wakil}}" required>
-                            <label for="email">Wakil</label>
-                            </div>
 
 
                              <div class="input-field col s12 m12 l12">
@@ -41,6 +35,34 @@
                             <input  type="text" name="bendahara" 
                             value="{{$kepengurusan->bendahara}}" required>
                             <label for="email">Bendahara</label>
+                            </div>
+
+                             <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input  type="text" name="seksiacara" 
+                            value="{{$kepengurusan->seksiacara}}" required>
+                            <label for="email">Seksi Acara</label>
+                            </div>
+
+                             <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input  type="text" name="seksimusik" 
+                            value="{{$kepengurusan->seksimusik}}" required>
+                            <label for="email">Seksi Musik</label>
+                            </div>
+
+                             <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input  type="text" name="seksikonselingdoa" 
+                            value="{{$kepengurusan->seksikonselingdoa}}" required>
+                            <label for="email">Seksi Konseling & Doa</label>
+                            </div>
+
+                            <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <textarea class="materialize-textarea"  type="text" name="motto" 
+                            required>{{$kepengurusan->motto}}</textarea>
+                            <label for="email">Motto</label>
                             </div>
 
 <center>

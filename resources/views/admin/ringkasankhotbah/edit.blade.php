@@ -1,13 +1,13 @@
 @extends('admin.dashboard') 
 
 @section('header')
-<title>Add Ringkasan</title>
+<title>Edit Ringkasan</title>
 @endsection
 
 @section('content')
 <div class="contianer" style="width: 700px;">
 
-<h4>Form Add Ringkasan</h4>
+<h4>Form Edit Ringkasan</h4>
 
 <form action="{{url('ringkasankhotbah/update/')}}" method="POST" enctype="multipart/form-data">
 

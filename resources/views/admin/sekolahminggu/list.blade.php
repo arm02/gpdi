@@ -1,7 +1,7 @@
 @extends('admin.dashboard') 
 
 @section('header')
-<title>Kaum Bapak</title>
+<title>Sekolah Minggu</title>
 @endsection
 
 @section('content')
@@ -11,9 +11,12 @@
         <thead>
           <tr>
               <th>Ketua</th>
-              <th>Wakil</th>
               <th>Seketaris</th>
               <th>Bendahara</th>
+              <th>Seksi Acara</th>
+              <th>Seksi Musik</th>
+              <th>Seksi Konseling & Doa</th>
+              <th>Paragraf Penjelas</th>
               <th colspan="1">Action</th>
           </tr>
         </thead>
@@ -22,9 +25,12 @@
           @foreach($kepengurusan as $key)
           <tr>
             <td>{{$key->ketua}}</td>
-            <td>{{$key->wakil}}</td>
             <td>{{$key->seketaris}}</td>
             <td>{{$key->bendahara}}</td>
+            <td>{{$key->seksiacara}}</td>
+            <td>{{$key->seksimusik}}</td>
+            <td>{{$key->seksikonselingdoa}}</td>
+            <td>{{substr(strip_tags($key->motto),0,10)}}</td>
             <td><a href="{{url('sekolahminggu/edit/kepengurusan/'.$key->id)}}"><i class="material-icons prefix" style="color: #1976d2;">edit</i></a></td>
           </tr>
            @endforeach
@@ -33,7 +39,7 @@
       <br>
       <button class="btn btn-primary all">Event / Acara</button> 
        <div class="input-field col s3" style="margin-top: -36px; margin-left: 700px;">
-        <a href="/sekolahminggu/add/event" class="btn btn-primary all">
+        <a href="{{url('sekolahminggu/add/event')}}" class="btn btn-primary all">
         <i class="material-icons">add</i></a></button>
       </div>
       <br>
@@ -68,7 +74,7 @@
 
         <button class="btn btn-primary all">Gallery</button> 
        <div class="input-field col s3" style="margin-top: -36px; margin-left: 700px;">
-        <a href="/sekolahminggu/add/foto" class="btn btn-primary all">
+        <a href="{{url('sekolahminggu/add/foto')}}" class="btn btn-primary all">
         <i class="material-icons">add</i></a></button>
       </div>
 

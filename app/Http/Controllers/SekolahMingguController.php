@@ -56,9 +56,12 @@ class SekolahMingguController extends Controller
     {
     	$a = \App\SekolahMinggu::find(Input::get('id'));
     	$a->ketua = Input::get('ketua');
-    	$a->wakil = Input::get('wakil');
     	$a->seketaris = Input::get('seketaris');
     	$a->bendahara = Input::get('bendahara');
+        $a->seksiacara = Input::get('seksiacara');
+        $a->seksimusik = Input::get('seksimusik');
+        $a->seksikonselingdoa = Input::get('seksikonselingdoa');
+        $a->motto = Input::get('motto');
     	$a->save();
     	return redirect(url('sekolahminggu/list'));
 

@@ -5,12 +5,10 @@
 @endsection
 
 @section('content')
-<h4>Ringkasan Khotbah</h4>
-<br>
 <div class="container">
 	 <button class="btn btn-primary all" style="font-size: 12px;">Ringkasan Khotbah</button>
           <div class="input-field col s3" style="margin-top: -36px; margin-left: 700px;">
-        <a href="/ringkasankhotbah/add/" class="btn btn-primary all">
+        <a href="{{url('ringkasankhotbah/add')}}" class="btn btn-primary all">
         <i class="material-icons">add</i></a></button>
       </div>
       <br>
@@ -33,12 +31,12 @@
           @foreach($ringkasankhotbah as $key)
           <tr>
             <td>{{$key->id}}</td>
-            <td>{{$key->judul}}</td>
+            <td>{{substr(strip_tags($key->judul),0,10)}}...</td>
             <td>{{$key->ayat}}</td>
             <td>{{$key->pendeta}}</td>
-            <td>{{$key->isi}}</td>
+            <td>{{substr(strip_tags($key->isi),0,15)}}...</td>
             <td><img style="width: 20px;height: 20px;" src="{{url('images/'.$key->sampul)}}"></td>
-            <td>{{$key->id_user}}</td>
+            <td>{{\App\User::find($key->id_user)['name']}}</td>
             <td><a href="{{url('ringkasankhotbah/edit/'.$key->id)}}"><i class="material-icons prefix" style="color: #1976d2;">edit</i></a></td>
             <td><a href="{{url('ringkasankhotbah/delete/'.$key->id)}}"
             onclick="return confirm('Are you sure to delete {{$key->judul}}?')"><i class="material-icons prefix" style="color: #1976d2;">delete</i></a>

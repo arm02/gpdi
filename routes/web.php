@@ -33,12 +33,31 @@ Route::get('logout',function ()
 });
 
 Route::get('/','UserInterface\ShowPictureController@index');
+Route::get('/wadah','UserInterface\WadahController@index');
+Route::get('/jadwal','UserInterface\JadwalController@index');
+Route::get('/tentang','UserInterface\TentangController@index');
+Route::get('/pengakuanimanuser','UserInterface\PengakuanImanController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin','AdminController@index');
 Route::get('/dashboard','AdminController@dashboard');
+
+
+
+Route::group(['prefix' => 'kotakdoa'], function () {
+               Route::get('/','UserInterface\PermohonanDoaController@index');
+               Route::post('save','UserInterface\PermohonanDoaController@save');
+               Route::get('/succes','UserInterface\PermohonanDoaController@succes');
+                });
+
+Route::group(['prefix' => 'kotakkeselamatan'], function () {
+               Route::get('/','UserInterface\KeselamatanController@index');
+               Route::post('save','UserInterface\KeselamatanController@save');
+               Route::get('/succes','UserInterface\KeselamatanController@succes');
+                });
+
 
 Route::group(['prefix' => 'kaumbapak'], function () {
                     Route::get('list', 'KaumBapakController@index');
@@ -137,5 +156,68 @@ Route::group(['prefix' => 'ringkasankhotbah'], function () {
                     Route::get('add','RingkasanKhotbahController@add');
                     Route::post('save','RingkasanKhotbahController@save');
                     Route::get('delete/{id}','RingkasanKhotbahController@delete');
+
+                });
+
+Route::group(['prefix' => 'artikelrohani'], function () {
+                    Route::get('list', 'ArtikelRohaniController@index');
+                    Route::get('edit/{id}','ArtikelRohaniController@edit');
+                    Route::post('update','ArtikelRohaniController@update');
+                    Route::get('add','ArtikelRohaniController@add');
+                    Route::post('save','ArtikelRohaniController@save');
+                    Route::get('delete/{id}','ArtikelRohaniController@delete');
+
+                });
+
+Route::group(['prefix' => 'pengakuaniman'], function () {
+                    Route::get('list', 'PengakuanImanController@index');
+                    Route::get('katapengantar/edit/{id}', 
+                        'PengakuanImanController@editpengakuaniman');
+                    Route::post('katapengantar/update/', 
+                        'PengakuanImanController@updatepengakuaniman');
+                    Route::get('edit/{id}','PengakuanImanController@edit');
+                    Route::post('update','PengakuanImanController@update');
+                    Route::get('add','PengakuanImanController@add');
+                    Route::post('save','PengakuanImanController@save');
+                    Route::get('delete/{id}','PengakuanImanController@delete');
+
+                });
+
+Route::group(['prefix' => 'permohonandoa'], function () {
+                    Route::get('list', 'AdminPermohonanDoaController@index');
+                    Route::get('edit/{id}','AdminPermohonanDoaController@edit');
+                    Route::post('update','AdminPermohonanDoaController@update');
+                    Route::get('add','AdminPermohonanDoaController@add');
+                    Route::post('save','AdminPermohonanDoaController@save');
+                    Route::get('kotakdoa/delete/{id}','AdminPermohonanDoaController@deletekotakdoa');
+                      Route::get('kotakdoa/detail/{id}','AdminPermohonanDoaController@detaildoa');
+
+                });
+
+
+Route::group(['prefix' => 'keselamatan'], function () {
+                    Route::get('list', 'KeselamatanController@index');
+                    Route::get('edit/{id}','KeselamatanController@edit');
+                    Route::post('update','KeselamatanController@update');
+                    Route::get('add','KeselamatanController@add');
+                    Route::post('save','KeselamatanController@save');
+                    Route::get('kotakkeselamatan/delete/{id}','KeselamatanController@deletekotakdoa');
+                      Route::get('kotakkeselamatan/detail/{id}','KeselamatanController@detaildoa');
+
+                });
+
+
+Route::group(['prefix' => 'kepengurusan'], function () {
+                    Route::get('list', 'KepengurusanController@index');
+                    Route::get('edit/{id}','KepengurusanController@edit');
+                    Route::post('update','KepengurusanController@update');
+
+                });
+
+Route::group(['prefix' => 'multimedia'], function () {
+                    Route::get('list', 'MultimediaController@index');
+                    Route::get('add/foto','MultimediaController@add');
+                    Route::post('save/foto','MultimediaController@save');
+                    Route::get('delete/foto/{id}','MultimediaController@delete');
 
                 });

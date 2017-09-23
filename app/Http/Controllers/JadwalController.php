@@ -15,7 +15,7 @@ class JadwalController extends Controller
 
     public function index(){
 
-        $data['jadwal']=\App\JadwalIbadah::paginate(10);
+        $data['jadwal']=\App\JadwalIbadah::get();
     	return view('admin.jadwal.list')->with($data);
     }
 

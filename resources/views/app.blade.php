@@ -17,16 +17,58 @@
 
     <nav>
     <div class="nav-wrapper all">
-    <div class="container">
-      <a href="/" class="brand-logo" style="font-size: 22px; margin-left: -25px;"><i class="material-icons">domain</i>GPdI Kp.Makassar</a>
+    <div class="container" style="width: 75%;">
+      <a href="{{url('/')}}" class="brand-logo" style="font-size: 22px; margin-left: -25px;"><i class="material-icons">domain</i>GPdI Kp.Makassar</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
+      <li><a href="{{url('/')}}">Home</a></li>
+ <li class="{{ Request::segment(1) === 'wadah' ? 'active' : null }}"><a href="{{url('/wadah')}}">Wadah</a></li>
+ <li class="{{ Request::segment(1) === 'jadwal' ? 'active' : null }}"><a href="{{url('/jadwal')}}">Jadwal Ibadah</a></li>
+  <li><a class='dropdown-button' data-activates='dropdown5'>Info Rohani</a></li>
+  <ul style="margin-top: 64px;" id='dropdown5' class='dropdown-content'>
+    <li><a href="{{url('/')}}" style="color: #1976d2">Ringkasan Khotbah</a></li>
+    <li><a href="{{url('/')}}" style="color: #1976d2">Artikel Rohani</a></li>
+  </ul>
+  <li><a class='dropdown-button' data-activates='dropdown1'>Interaktif</a></li>
+  <ul style="margin-top: 64px;" id='dropdown1' class='dropdown-content'>
+    <li class="{{ Request::segment(1) === 'kotakdoa' ? 'active' : null }}"><a href="{{url('/kotakdoa')}}" style="color: #1976d2">Permohonan Doa</a></li>
+    <li class="{{ Request::segment(1) === 'kotakkeselamatan' ? 'active' : null }}"><a href="{{url('/kotakkeselamatan')}}" style="color: #1976d2">Keselamatan</a></li>
+    <li><a href="#!" style="color: #1976d2">Pengakuan Iman</a></li>
+  </ul>
+ <li><a class='dropdown-button' data-activates='dropdown3'>Multimedia</a></li>
+  <ul style="margin-top: 64px;" id='dropdown3' class='dropdown-content'>
+    <li><a href="{{url('/')}}" style="color: #1976d2">Gallery</a></li>
+    <li><a href="{{url('/')}}" style="color: #1976d2">Alkitab Online</a></li>
+    <li><a href="#!" style="color: #1976d2">Worker</a></li>
+  </ul>
+   <li><a href="{{url('/tentang')}}" class="main-nav btn blue-text text-accent-2 white waves-effect"><i class="material-icons">info_outline</i></a></li>
 
-        @include('menu')  
       </ul>
+
+
       <ul class="side-nav" id="mobile-demo">
 
-       @include('menu')
+              <li><a href="{{url('/')}}">Home</a></li>
+ <li><a href="{{url('/wadah')}}">Wadah</a></li>
+ <li><a href="{{url('/jadwal')}}">Jadwal Ibadah</a></li>
+  <li><a class='dropdown-button' data-activates='dropdown11'>Info Rohani</a></li>
+  <ul style="margin-top: 64px;" id='dropdown11' class='dropdown-content'>
+    <li><a href="{{url('/')}}" style="color: #1976d2">Ringkasan Khotbah</a></li>
+    <li><a href="{{url('/')}}" style="color: #1976d2">Artikel Rohani</a></li>
+  </ul>
+  <li><a class='dropdown-button' data-activates='dropdown12'>Interaktif</a></li>
+  <ul style="margin-top: 64px;" id='dropdown12' class='dropdown-content'>
+    <li><a href="{{url('/kotakdoa')}}" style="color: #1976d2">Permohonan Doa</a></li>
+    <li><a href="{{url('/kotakkeselamatan')}}" style="color: #1976d2">Keselamatan</a></li>
+    <li><a href="#!" style="color: #1976d2">Pengakuan Iman</a></li>
+  </ul>
+ <li><a class='dropdown-button' data-activates='dropdown13'>Multimedia</a></li>
+  <ul style="margin-top: 64px;" id='dropdown13' class='dropdown-content'>
+    <li><a href="{{url('/')}}" style="color: #1976d2">Gallery</a></li>
+    <li><a href="{{url('/')}}" style="color: #1976d2">Alkitab Onlie</a></li>
+    <li><a href="#!" style="color: #1976d2">Worker</a></li>
+  </ul>
+   <li><a href="{{url('/tentang')}}" class="main-nav btn blue-text text-accent-2 white waves-effect"><i class="material-icons">info_outline</i></a></li>
 
       </ul>
       </div>
@@ -45,7 +87,7 @@
       <script type="text/javascript" src="{{url('materialize/js/jquery-3.1.0.min.js')}}"></script>
       @yield('footer')
        <script type="text/javascript">
-      $(".all").css("background-color","#1976d2 ");
+      $(".all").css("background-color","#1976d2");
       </script>
 
       <script type="text/javascript" src="{{url('materialize/js/materialize.min.js')}}"></script>

@@ -13,20 +13,23 @@
       <title>Dashboard</title>
   </head>
   <body>
- <nav>
-    <div class="nav-wrapper all">
-    <div class="container">
-      <a href="/admin" style="margin-left: -170px;" class="brand-logo"><i class="material-icons">domain</i>GPdI Kp.Makassar</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
+  <div class="navbar-fixed">
+   <nav>
+      <div class="nav-wrapper all">
+      <div class="container">
+        <a href="/admin" style="margin-left: -170px;" class="brand-logo"><i class="material-icons">domain</i>GPdI Kp.Makassar</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
 
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
 
-      </ul>
+        </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+    
+  </div>
   
  <ul id="slide-out" class="side-nav fixed" style="margin-top: 65px;">
   <li class="waves-effect waves-block active "><a href="/dashboard"><i class="material-icons">dashboard</i>Dashboard</a></li>
@@ -37,18 +40,18 @@
           <a class="collapsible-header waves-effect waves-block ">Wadah<i class="material-icons">pages</i></a>
           <div class="collapsible-body">
             <ul>
-              <li class="waves-effect waves-block "><a href="/kaumbapak/list">Kaum Bapak<i class="material-icons">person_add</i>
+              <li class="waves-effect waves-block "><a href="{{url('kaumbapak/list')}}">Kaum Bapak<i class="material-icons">person_add</i>
               </a></li>
-              <li class="waves-effect waves-block "><a href="/kaumibu/list">Kaum Ibu<i class="material-icons">person_pin</i></a></li>
-              <li class="waves-effect waves-block "><a href="/pemuda/list">Pemuda Joshua<i class="material-icons">perm_contact_calendar</i></a></li>
-              <li class="waves-effect waves-block "><a href="/remaja/list">Remaja Kaleb<i class="material-icons">perm_identity</i></a></li>
-              <li class="waves-effect waves-block "><a href="/sekolahminggu/list">Sekolah Minggu<i class="material-icons">person_pin_circle</i></a></li>
+              <li class="waves-effect waves-block "><a href="{{url('kaumibu/list')}}">Kaum Ibu<i class="material-icons">person_pin</i></a></li>
+              <li class="waves-effect waves-block "><a href="{{url('pemuda/list')}}">Pemuda Joshua<i class="material-icons">perm_contact_calendar</i></a></li>
+              <li class="waves-effect waves-block "><a href="{{url('remaja/list')}}">Remaja Kaleb<i class="material-icons">perm_identity</i></a></li>
+              <li class="waves-effect waves-block "><a href="{{url('sekolahminggu/list')}}">Sekolah Minggu<i class="material-icons">person_pin_circle</i></a></li>
               
             </ul>
           </div>
         </li>
         <li >
-          <a href="/jadwal/list" class="collapsible-header waves-effect waves-block ">Jadwal Ibadah<i class="material-icons">date_range</i></a>
+          <a href="{{url('jadwal/list')}}" class="collapsible-header waves-effect waves-block ">Jadwal Ibadah<i class="material-icons">date_range</i></a>
         </li>
 
          <li>
@@ -57,9 +60,9 @@
           <a class="collapsible-header waves-effect waves-block ">Info Rohani<i class="material-icons">library_books</i></a>
           <div class="collapsible-body">
             <ul>
-              <li class="waves-effect waves-block "><a href="/ringkasankhotbah/list">Ringkasan Khotbah<i class="material-icons">library_add
+              <li class="waves-effect waves-block "><a href="{{url('ringkasankhotbah/list')}}">Ringkasan Khotbah<i class="material-icons">library_add
                 </i></a></li>
-              <li class="waves-effect waves-block "><a href="/admin">Renungan Harian<i class="material-icons">local_library</i></a></li>
+              <li class="waves-effect waves-block "><a href="{{url('artikelrohani/list')}}">Artikel Rohani<i class="material-icons">local_library</i></a></li>
               
             </ul>
           </div>
@@ -70,20 +73,20 @@
           <a class="collapsible-header waves-effect waves-block ">Interaktif<i class="material-icons">lightbulb_outline</i></a>
           <div class="collapsible-body">
             <ul>
-              <li class="waves-effect waves-block "><a href="/admin">Permohonan Doa<i class="material-icons">local_post_office</i></a></li>
-              <li class="waves-effect waves-block "><a href="/admin">Keselamatan<i class="material-icons">local_pharmacy
+              <li class="waves-effect waves-block "><a href="{{url('permohonandoa/list')}}">Permohonan Doa<i class="material-icons">local_post_office</i></a></li>
+              <li class="waves-effect waves-block "><a href="{{url('keselamatan/list')}}">Keselamatan<i class="material-icons">local_pharmacy
                   </i></a></li>
-              <li class="waves-effect waves-block "><a href="/admin">Pengakuan Iman<i class="material-icons">loyalty</i></a></li>
+              <li class="waves-effect waves-block "><a href="{{url('pengakuaniman/list')}}">Pengakuan Iman<i class="material-icons">loyalty</i></a></li>
               
             </ul>
           </div>
         </li>
           <li>
-          <a class="collapsible-header waves-effect waves-block ">Multimedia
+          <a href="{{url('/multimedia/list')}}" class="collapsible-header waves-effect waves-block ">Multimedia
           <i class="material-icons">camera_alt</i></a>
         </li>
          <li>
-          <a class="collapsible-header waves-effect waves-block ">Kepengurusan / Majelis
+          <a href="{{url('/kepengurusan/list')}}" class="collapsible-header waves-effect waves-block ">Kepengurusan / Majelis
           <i class="material-icons">assessment</i></a>
         </li>
             <li>

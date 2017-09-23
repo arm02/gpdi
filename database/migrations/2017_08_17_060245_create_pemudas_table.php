@@ -19,6 +19,10 @@ class CreatePemudasTable extends Migration
             $table->string('wakil');
             $table->string('seketaris');
             $table->string('bendahara');
+            $table->string('seksiacara');
+            $table->string('seksimusik');
+            $table->string('seksikonselingdoa');
+            $table->string('motto');
             $table->string('foto');
             $table->string('event');
             $table->timestamps();
